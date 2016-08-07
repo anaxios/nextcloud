@@ -1,0 +1,22 @@
+db:
+  image: mariadb:latest
+  volumes:
+    - ./db:/var/lib/mysql
+  environment:
+    MYSQL_ROOT_PASSWORD: monkey123
+    MYSQL_DATABASE: nextcloud
+    MYSQL_USER: nextcloud
+    MYSQL_PASSWORD: monkey123
+redis:
+  image: redis:alpine
+nextcloud:
+  image: skybosh:nextcloud
+  volumes:
+    - ./apps:/var/www/html/apps
+    - ./config:/var/www/html/config
+    - ./data:/var/www/html/data
+  ports:
+    - 80:80
+  links:
+    - db
+    - redis
