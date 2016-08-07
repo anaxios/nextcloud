@@ -50,4 +50,4 @@ Please see the Git repo for the sample config files.
 
 Note: memcached is not compatible with PHP 7. 
 
-[nextCloud Docs: Configuring Memory Caching](https://docs.nextcloud.com/server/9/admin_manual/configuration_server/caching_configuration.html?highlight=memcache)
+[nextCloud Docs/Configuring Memory Caching](https://docs.nextcloud.com/server/9/admin_manual/configuration_server/caching_configuration.html?highlight=memcache)
