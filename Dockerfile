@@ -39,10 +39,14 @@ RUN set -ex \
 ENV NEXTCLOUD_VERSION 9.0.53
 VOLUME /var/www/html
 
-RUN curl -fsSL -o nextcloud.tar.bz2 \
+RUN curl -fsSL -o nextcloud-${NEXTCLOUD_VERSION}.tar.bz2 \
                 "https://download.nextcloud.com/server/releases/nextcloud-${NEXTCLOUD_VERSION}.tar.bz2" \
-        && tar -xjf nextcloud.tar.bz2 -C /usr/src/ \
-        && rm nextcloud.tar.bz2
+	&& curl -fsSL -o nextcloud-${NEXTCLOUD_VERSION}.tar.bz2.md5 \
+                "https://download.nextcloud.com/server/releases/nextcloud-${NEXTCLOUD_VERSION}.tar.bz2.md5" \
+	&& md5sum -c nextcloud-${NEXTCLOUD_VERSION}.tar.bz2.md5 < nextcloud-${NEXTCLOUD_VERSION}.tar.bz2 \
+        && tar -xjf nextcloud-${NEXTCLOUD_VERSION}.tar.bz2 -C /usr/src/ \
+	&& rm -r nextcloud-${NEXTCLOUD_VERSION}.tar.bz2.md5 \
+        && rm nextcloud-${NEXTCLOUD_VERSION}.tar.bz2
 
  COPY docker-entrypoint.sh /entrypoint.sh
  CMD ["apache2-foreground"]
