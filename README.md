@@ -1,6 +1,6 @@
-# nextCloud
+# Nextcloud
 
-A Simple nextCloud image. The Dockerfile is almost idetical to the offical ownCloud Dockerfile.
+A Simple Nextcloud image. The Dockerfile is almost idetical to the offical ownCloud Dockerfile.
 PHP is upgraded to 7.0.9.
 ### Run From CL
     docker run -d -p 80:80 skybosh/nextcloud:latest
@@ -50,4 +50,4 @@ Please see the Git repo for the sample config files.
 
 Note: memcached is not compatible with PHP 7. 
 
-[nextCloud Docs/Configuring Memory Caching](https://docs.nextcloud.com/server/9/admin_manual/configuration_server/caching_configuration.html?highlight=memcache)
+[Nextcloud Docs/Configuring Memory Caching](https://docs.nextcloud.com/server/9/admin_manual/configuration_server/caching_configuration.html?highlight=memcache)
