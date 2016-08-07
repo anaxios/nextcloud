@@ -41,7 +41,29 @@ Please see the Git repo for the sample config files.
       links:
         - db
         - redis
-
+### Ubuntu Upstart config sample for docker-compose
+    description "Nextcloud"
+    
+    # Start Nextcloud only after Docker service starts
+    start on (started docker)
+    stop on runlevel [!2345]
+    
+    # Automatically Respawn with finite limits
+    respawn
+    respawn limit 99 5
+    
+    # Path to our app
+    chdir /var/www/nextcloud
+    
+    script
+        # Bring up mariadb, redis, and Nextcloud 
+        exec /usr/local/bin/docker-compose up
+    end script
+    
+    post-stop script
+        # Actually stop the containers
+        exec /usr/local/bin/docker-compose stop
+    end script
 ### Sample config for nginx reverse proxy
 
 [GitHub/nextcloud.conf](https://github.com/skybosh/nextcloud/blob/master/nextcloud.conf)
