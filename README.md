@@ -2,6 +2,19 @@
 
 A Simple nextCloud image. The Dockerfile is almost idetical to the offical ownCloud Dockerfile.
 PHP is upgraded to 7.0.9.
+### Run From CL
+    docker run -d -p 80:80 skybosh/nextcloud:latest
+### Run from CL with database
+    docker run -d -p 80:80 --link nextcloud-mariadb:mysql skybosh/nextcloud:latest
+
+### For data persistence 
+
+* -v /my/nextcloud/dir:/var/www/html
+
+You can separate the data, config and apps directory.
+* -v /my/data/dir:/var/www/html/data
+* -v /my/apps/dir:/var/www/html/apps
+* -v /my/config/dir:/var/www/html/config
 
 Please see the Git repo for the sample config files. 
 [GitHub/skybosh/nextcloud](https://github.com/skybosh/nextcloud)
@@ -33,7 +46,7 @@ Please see the Git repo for the sample config files.
 
 [GitHub/nextcloud.conf](https://github.com/skybosh/nextcloud/blob/master/nextcloud.conf)
 
-## Cacheing with redis & APCu
+### Cacheing with redis & APCu
 
 Note: memcached is not compatible with PHP 7. 
 
