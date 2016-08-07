@@ -1,4 +1,4 @@
-ROM php:7.0.9-apache
+FROM php:7.0.9-apache
 
 RUN apt-get update && apt-get install -y \
         bzip2 \
