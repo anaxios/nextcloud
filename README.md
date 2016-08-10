@@ -1,5 +1,5 @@
 # Nextcloud
-A Simple Nextcloud image. The Dockerfile is almost idetical to the offical ownCloud Dockerfile.  
+A Simple Nextcloud image. The Dockerfile is almost identical to the offical ownCloud Dockerfile.  
 Nextcloud is version 9.0.53.  
 PHP is upgraded to 7.0.9.  
 
