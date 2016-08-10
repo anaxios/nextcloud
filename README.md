@@ -1,24 +1,26 @@
 # Nextcloud
+A Simple Nextcloud image. The Dockerfile is almost idetical to the offical ownCloud Dockerfile.  
+Nextcloud is version 9.0.53.  
+PHP is upgraded to 7.0.9.  
 
-A Simple Nextcloud image. The Dockerfile is almost idetical to the offical ownCloud Dockerfile.
-PHP is upgraded to 7.0.9.
 ### Run From CL
     docker run -d -p 80:80 skybosh/nextcloud:latest
+
 ### Run from CL with database
     docker run -d -p 80:80 --link nextcloud-mariadb:mysql skybosh/nextcloud:latest
 
 ### For data persistence 
-
 * -v /my/nextcloud/dir:/var/www/html
 
-You can separate the data, config and apps directory.
+It is sometimes useful to separate the file structure with a little more granularity. In particular, by puttig the /var/www/html/data directory on a RAID Disk.  
 * -v /my/data/dir:/var/www/html/data
 * -v /my/apps/dir:/var/www/html/apps
 * -v /my/config/dir:/var/www/html/config
 
-Please see the Git repo for the sample config files. 
+Please see the Git repo for the example config files. 
 [GitHub/skybosh/nextcloud](https://github.com/skybosh/nextcloud)
-### Sample docker-compose.yml
+
+### Example docker-compose.yml
     db:
       image: mariadb:latest
       volumes:
@@ -41,7 +43,8 @@ Please see the Git repo for the sample config files.
       links:
         - db
         - redis
-### Ubuntu Upstart config sample for docker-compose
+
+### Ubuntu Upstart config example for docker-compose
     description "Nextcloud"
     
     # Start Nextcloud only after Docker service starts
@@ -64,12 +67,12 @@ Please see the Git repo for the sample config files.
         # Actually stop the containers
         exec /usr/local/bin/docker-compose stop
     end script
-### Sample config for nginx reverse proxy
 
+### Example config for nginx reverse proxy
 [GitHub/nextcloud.conf](https://github.com/skybosh/nextcloud/blob/master/nextcloud.conf)
 
 ### Cacheing with redis & APCu
 
-Note: memcached is not compatible with PHP 7. 
+Note:* memcached is not compatible with PHP 7.* 
 
 [Nextcloud Docs/Configuring Memory Caching](https://docs.nextcloud.com/server/9/admin_manual/configuration_server/caching_configuration.html?highlight=memcache)
