@@ -1,5 +1,8 @@
 FROM php:7.0.9-apache
 
+TAG skybosh/nextcloud:latest
+TAG skybosh/nextcloud:9.0.53
+
 RUN apt-get update && apt-get install -y \
         bzip2 \
         libcurl4-openssl-dev \
