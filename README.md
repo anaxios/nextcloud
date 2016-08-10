@@ -12,7 +12,7 @@ PHP is upgraded to 7.0.9.
 ### For data persistence 
 * -v /my/nextcloud/dir:/var/www/html
 
-It is sometimes useful to separate the file structure with a little more granularity. In particular, by puttig the /var/www/html/data directory on a RAID Disk.  
+It is sometimes useful to separate the file structure with a little more granularity. In particular, by putting the /var/www/html/data directory on a RAID Disk.  
 * -v /my/data/dir:/var/www/html/data
 * -v /my/apps/dir:/var/www/html/apps
 * -v /my/config/dir:/var/www/html/config
