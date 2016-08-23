@@ -49,5 +49,6 @@ RUN curl -fsSL -o nextcloud-${NEXTCLOUD_VERSION}.tar.bz2 \
 	&& rm -r nextcloud-${NEXTCLOUD_VERSION}.tar.bz2.md5 \
         && rm nextcloud-${NEXTCLOUD_VERSION}.tar.bz2
 
- COPY docker-entrypoint.sh /entrypoint.sh
- CMD ["apache2-foreground"]
+COPY docker-entrypoint.sh /entrypoint.sh
+ENTRYPOINT ["/entrypoint.sh"]
+CMD ["apache2-foreground"]
