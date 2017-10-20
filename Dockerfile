@@ -1,4 +1,4 @@
-FROM php:7.0.9-apache
+FROM php:7.0.24-apache
 MAINTAINER skybosh <skybosh@daedalist.net>
 
 RUN apt-get update && apt-get install -y \
@@ -37,7 +37,7 @@ RUN set -ex \
         && pecl install redis \
         && docker-php-ext-enable apcu redis
 
-ENV NEXTCLOUD_VERSION 9.0.53
+ENV NEXTCLOUD_VERSION 12.0.3
 VOLUME /var/www/html
 
 RUN curl -fsSL -o nextcloud-${NEXTCLOUD_VERSION}.tar.bz2 \
